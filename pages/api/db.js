@@ -8,6 +8,7 @@ export default async function connect(req, res) {
       let table = req.query.table
       let cols = req.query.cols
       let filter = req.query.filter
+      console.log(table, cols)
       let response = await supabase
       .from(table)
       .select(cols)
