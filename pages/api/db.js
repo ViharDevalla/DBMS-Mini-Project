@@ -7,7 +7,6 @@ export default async function connect(req, res) {
     if(req.method === 'GET') {
       let table = req.query.table
       let cols = req.query.cols
-      let filter = req.query.filter
       console.log(table, cols)
       let response = await supabase
       .from(table)
@@ -21,24 +20,21 @@ export default async function connect(req, res) {
       let data = req.body.data
       let response = await supabase
       .from(table)
-      .insert([
-        { data },
-      ])
+      .insert(data)
 
-      res.status(200).json({ data:response.data })
+      res.status(200).json({ data:response.data,err:response.error })
     }
 
     if(req.method === 'PUT') {
-      let table = req.query.table
-      let data = req.query.data
-      let col = req.query.col
-      let value = req.query.value
+      let table = req.body.table
+      let data = req.body.data
+      let filter = req.body.filter
       let response = await supabase
-      from(table)
+      .from(table)
       .update(data)
-      .eq(col, value)
+      .match(filter)
 
-      res.status(200).json({ data:response.data })
+      res.status(200).json({ data:response.data,err:response.error })
     }
 
     if(req.method === 'DELETE') {

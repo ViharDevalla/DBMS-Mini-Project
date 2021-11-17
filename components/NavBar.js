@@ -1,9 +1,18 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 
 import { Transition } from "@headlessui/react";
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [login, setLogin] = useState(false);
+    useEffect(() => {
+        if(localStorage.getItem('token')){
+            setLogin(true) 
+        }
+      },[])
+    function logout(){
+        localStorage.removeItem('token')
+    }
     return (
         <div className="pb-18">
         <nav className="bg-white w-full fixed z-50 border-b-2" >
@@ -12,11 +21,13 @@ const NavBar = () => {
                 <div className="flex items-center ">
                 <div className="flex-shrink-0 ">
                     <img
-                    className="h-10 w-10"
-                    src="/vercel.svg"
+                    className="h-24 w-24"
+                    src="/logo.png"
                     alt="LibraSmart Logo"
                     />
+                    
                 </div>
+                <a className="font-medium">LibraSmart</a>
                 <div className="hidden md:block lg:px-auto">
                     <div className="ml-10 flex items-baseline space-x-4">
                     <a
@@ -32,25 +43,32 @@ const NavBar = () => {
 
 
 
-                    <a
+                    {/* <a
                         href="/team"
                         className="text-gray-800 hover:bg-gray-200 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                     >
                         About Us
-                    </a>
+                    </a> */}
 
                     <a
-                        href="/videos"
+                        href="/profile"
                         className="text-gray-800 hover:bg-gray-200 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                     >
                         Profile
                     </a>
+                    <a
+                    href="/"
+                    className={login?"text-gray-800 hover:bg-gray-200 hover:text-black block px-3 py-2 rounded-md text-sm font-medium":"hidden"}
+                    onClick={logout}
+                    >
+                    Logout
+                    </a>
 
-                    <div className="dropdown inline-block relative">
+                    {/* <div className="dropdown inline-block relative">
                         <button className="hover:bg-gray-200 text-black px-3 py-2 rounded-md text-sm font-medium">
                         <span className="mr-1">Buy Subscription</span>
                         </button>
-                    </div>
+                    </div> */}
 
                     
                     </div>
@@ -122,28 +140,37 @@ const NavBar = () => {
                     Home
                     </a>
 
-                    <a
+                    {/* <a
                     href="/videos"
                     className="text-gray-800 hover:bg-gray-200 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
                     >
                     About Us
-                    </a>
+                    </a> */}
 
                     
 
                     <a
-                    href="/team"
+                    href="/profile"
                     className="text-gray-800 hover:bg-gray-200 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
                     >
                     Profile
                     </a>
 
+
                     <a
+                    href="/"
+                    className={login?"text-gray-800 hover:bg-gray-200 hover:text-black block px-3 py-2 rounded-md text-base font-medium":"hidden"}
+                    onClick={logout}
+                    >
+                    Logout
+                    </a>
+
+                    {/* <a
                     href="/upcoming"
                     className="text-gray-800 hover:bg-gray-200 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
                     >
                     Buy Subscription
-                    </a>
+                    </a> */}
                     
                 </div>
                 </div>
