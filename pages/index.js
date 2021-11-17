@@ -21,22 +21,24 @@ export default function Home() {
 
   if(!loggedIn){
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <Head>
-          <title>LibraSmart</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-  
-        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-          <h1 className="text-6xl font-bold">
-            Welcome to <a className="text-green-600">LibraSmart</a>
-          </h1>
-          <p className="text-xl py-10">
-            We offer you the best of books for one single subscription.
-          </p>
-          <div className="bg-green-500  rounded-lg text-white py-2 px-4 hover:bg-green-600 cursor-pointer "><a href='/login'>Login / Signup</a></div>
-  
-        </main>
+      <div className="bg-no-repeat bg-fixed bg-center bg-cover" style={{backgroundImage: "url(" + "/back2.jpg" + ")"}}>
+        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+          <Head>
+            <title>LibraSmart</title>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          
+            <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+              <h1 className="text-6xl font-bold">
+              <a className="text-white">Welcome to </a> <a className="text-green-500">LibraSmart</a>
+              </h1>
+              <p className="text-xl py-10 text-white font-bold">
+                We offer you the best of books for one single subscription.
+              </p>
+              <div className="bg-green-500  rounded-lg text-white py-2 px-4 hover:bg-green-600 cursor-pointer font-light text-lg"><a href='/login'>Login / Signup</a></div>
+      
+            </main>
+          </div>
   
       </div>
     )

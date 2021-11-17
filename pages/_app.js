@@ -5,12 +5,9 @@ function MyApp({ Component, pageProps }) {
   <div>
     <NavBar />
     <Component {...pageProps} />
-    <footer className="flex items-center justify-center w-full h-24 border-t">
+    <footer className="flex items-center justify-center w-full h-12 border-t">
           <a
             className="flex items-center justify-center"
-            href=""
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Made with ❤️ from PES University
           </a>

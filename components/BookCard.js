@@ -29,12 +29,16 @@ const BookCard = (props) => {
                 console.log(res)
             })
             alert("Book Issued")
+            window.href = '/'
             }
             catch(err){
                 console.log(err)
                 alert("Error")
             }
             
+        }
+        else{
+            alert("Book not available")
         }
 
     }
