@@ -1,6 +1,8 @@
 # UE19CS301 - DBMS Mini Project
 
 This is the frontend for the DBMS Mini Project using PostgreSQL.
+
+URL for the project - https://dbms-mini-project.vercel.app/
 ## Tech Stack
 1. Next.JS
 2. API - Next.JS Routes (Serverless functions)
